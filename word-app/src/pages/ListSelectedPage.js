@@ -6,6 +6,12 @@ import axios from 'axios';
 
 const ListSelectedPage = (props) => {
 
+  useEffect(() => {
+   console.log(process.env.REACT_APP_rapidapi_host);
+   console.log(process.env.REACT_APP_rapidapi_key);
+  }, [])
+  
+
   function addWord() {
     let newWord = prompt("Skriv in det nya ENGELSKA ordet")
     if (newWord == null || newWord == "") return -1
@@ -17,8 +23,8 @@ const ListSelectedPage = (props) => {
       url: 'https://just-translated.p.rapidapi.com/',
       params: {lang: 'sv', text: newWord},
       headers: {
-        'x-rapidapi-host': 'just-translated.p.rapidapi.com',
-        'x-rapidapi-key': '2de26ac0a2mshe6832abec6f4f0bp1928b9jsn699ea3509bb3'
+        'x-rapidapi-host': process.env.REACT_APP_rapidapi_host,
+        'x-rapidapi-key': process.env.REACT_APP_rapidapi_key
       }
     };
     axios.request(options)
@@ -26,6 +32,7 @@ const ListSelectedPage = (props) => {
         if(res.data.code !== 200){
           alert("Unknown status code! Code: " + res.data.code + " with word " + res.data.text[0])
         }else{
+          console.log(res.data);
           props.setWordlist(prev => {
             let glosa = {'en':newWord, 'sv':res.data.text[0]}
             prev.words.push(glosa)

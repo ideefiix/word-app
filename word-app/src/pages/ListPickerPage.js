@@ -17,9 +17,9 @@ const ListPickerPage = (props) => {
     let createdAt = Date.now()
     let list = {
       name: listName,
-      timeCreated: createdAt
+      timeCreated: createdAt,
+      words:[]
     }
-
     setList(prevList => ([...prevList, list]))
   }
   function fetchLists() {
