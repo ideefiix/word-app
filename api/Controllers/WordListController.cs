@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using api.Models;
 using api.Models.Dtos;
+using api.Services;
 
 namespace api.Controllers
 {
@@ -67,9 +68,12 @@ namespace api.Controllers
             WordList wl = await _context.WordLists.FirstAsync(x => x.Id == id);
             if (wl == null) return BadRequest("List does not exist");
 
+            TranslateService ts = new TranslateService();
+            string swedishTranslate = await ts.translate(word.En); 
+            Console.WriteLine("Here is the money", swedishTranslate);
             Word w = new Word()
             {
-                Sv = "NOT IMPLEMENTED",
+                Sv = swedishTranslate,
                 En = word.En,
                 InList = wl,
                 InListId = wl.Id,
