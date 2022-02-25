@@ -1,0 +1,11 @@
+ //API request
+    var axios = require("axios").default;
+    var options = {
+      method: 'GET',
+      url: 'https://just-translated.p.rapidapi.com/',
+      params: {lang: 'sv', text: newWord},
+      headers: {
+        'x-rapidapi-host': process.env.REACT_APP_rapidapi_host,
+        'x-rapidapi-key': process.env.REACT_APP_rapidapi_key
+      }
+    };

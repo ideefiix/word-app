@@ -1,0 +1,17 @@
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\api.exe
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\appsettings.Development.json
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\appsettings.json
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\api.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\api.runtimeconfig.json
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\api.pdb
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Microsoft.EntityFrameworkCore.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Microsoft.OpenApi.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Npgsql.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\flind\Desktop\word-app\api\bin\Debug\net6.0\publish\api.deps.json

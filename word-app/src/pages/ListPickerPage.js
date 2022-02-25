@@ -2,40 +2,31 @@ import React from 'react'
 import '../App.css';
 import { ListGroup, Row, Container, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import {db_fetchAllLists, db_createList} from '../Communicator'
 
 const ListPickerPage = (props) => {
+  // A list of wordLists
   const [list, setList] = useState([])
 
   useEffect(() => {
     fetchLists()
   }, [])
 
-  function createList() {
+  async function createList() {
     let listName = prompt("Ge listan ett namn")
     if (listName == null || listName == "") return -1
 
-    let createdAt = Date.now()
-    let list = {
-      name: listName,
-      timeCreated: createdAt,
-      words:[]
-    }
-    setList(prevList => ([...prevList, list]))
+    await db_createList(listName);
+    await fetchLists();
   }
-  function fetchLists() {
-    let arr = [
-      { name: "Lista 3", timeCreated: Date.now() - 30, words:[{sv:"test",en:"test"}] },
-      { name: "Lista 4", timeCreated: Date.now() - 20, words:[{sv:"test",en:"test"}] },
-      { name: "Lista 2", timeCreated: Date.now() - 40, words:[{sv:"test",en:"test"}] },
-      { name: "Lista 1", timeCreated: Date.now() - 50, words:[{sv:"test",en:"test"},{sv:"bajs",en:"poop"}] }
-    ]
-    //Lists is ordered by age 
-    arr.sort((a, b) => a.timeCreated - b.timeCreated)
-    setList(arr)
+  
+  async function fetchLists() {
+    let li = await db_fetchAllLists()
+    setList(li.data)
   }
+
   function selectList(list) {
-    props.setWordlist(list)
-    props.setListIsSelected(true)
+    props.setSelectedList(list)
   }
 
   return (
