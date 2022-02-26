@@ -11,14 +11,16 @@ namespace api.Services
 
         public async Task<string> translate(string en_query)
         {
+            
+            Console.WriteLine("Variabler ", Environment.GetEnvironmentVariables());
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
                 RequestUri = new Uri("https://google-translate1.p.rapidapi.com/language/translate/v2"),
                 Headers =
     {
-        { "x-rapidapi-host", "google-translate1.p.rapidapi.com" },
-        { "x-rapidapi-key", "2de26ac0a2mshe6832abec6f4f0bp1928b9jsn699ea3509bb3" },
+        { "x-rapidapi-host", Environment.GetEnvironmentVariable("x-rapidapi-host") },
+        { "x-rapidapi-key", Environment.GetEnvironmentVariable("x-rapidapi-key") },
     },
                 Content = new FormUrlEncodedContent(new Dictionary<string, string>
     {

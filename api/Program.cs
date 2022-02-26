@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using api.Models;
-var builder = WebApplication.CreateBuilder(args);
+using api;
 
+var builder = WebApplication.CreateBuilder(args);
+DotEnv.Load("./.env");
 // Add services to the container.
 var connectionString = $"host={builder.Configuration.GetValue<string>("DatabaseSettings:Host")};"
                     + $"port={builder.Configuration.GetValue<string>("DatabaseSettings:Port")};"
@@ -21,13 +23,13 @@ builder.Services.AddCors(options =>
                       builder =>
                       {
                           builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+                          builder.WithOrigins()
 
                       });
 });
 
 var app = builder.Build();
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
